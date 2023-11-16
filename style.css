@@ -1,0 +1,144 @@
+:root{
+  --encabezado-color:#FBC02D;
+  --botones-color:#FFF9C4;
+  --fondo-color:rgba(24, 23, 25, 1);
+  --menu:#FDD835;
+  --text-color:#00001a;
+}
+
+*{
+  margin:0; /*Sin espacios*/
+  padding:0; /*Sin espacio entre el contenido y el borde*/
+  box-sizing:border-box; /*Que no se añada tamaño nuevo*/
+  font-family: 'Roboto', sans-serif;
+}
+/* Para poder controlar el scroll */
+html{
+  scroll-behavior:smooth;
+}
+body{
+   /* Esto arregla el error del position fixed  */
+   /* padding-top:60px; */
+   background-color:white;
+}
+
+.encabezado {
+  /* fixed: para que se muestre ariba del todo */
+  position:fixed;
+  /* tamaño */
+  height:50px; 
+  /* anchor */
+  width:100%;
+  background-color:var(--encabezado-color);
+  color:#ffffff;
+  /* z-index para que a la hora de mostrar los enlaces no lo borre */
+  z-index:40;
+}
+
+.encabezado h1{
+  padding-top:5px;
+  text-align:center;
+  font-weight:500;
+}
+
+.lista-enlaces{
+  position:fixed;/*Ocupa toda la panta*/
+  left:0;/*Para que se oculte su valor se actualiza al 100%*/
+  top:0;
+  /*el top de los enlaces*/
+  padding-top:40px;
+  background-color:rgb(0, 0, 0);
+  /* Width y height para que ocupe toda la pantalla */
+  width:100vw;
+  height:100vh;
+  /* flexbox para que quede bien ordenado */
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:space-evenly;
+  /* transicion de no se que*/
+  transition:left .4s;
+  /* Manejo de la transicion */
+  z-index:20;
+}
+.lista-enlaces a{
+  color:rgb(255, 255, 255);
+  text-decoration:none;
+  font-weight:400;
+  font-size:30px;
+  padding:10px 20px;
+}
+.lista-enlaces a:hover{
+  opacity:.9;
+  font-size:35px;
+  text-decoration:underline;
+  transition:.4s;
+}
+.lista-enlaces a:active{
+  opacity:.7;
+  transition:.1s;
+}
+
+.seccion-1{
+  position:relative;
+  top:0;
+}
+
+section{
+  /* margin-bottom:espacio de cada seccion de la pagina */
+  margin-bottom:85vh;
+  display:flex;
+  justify-content:center;
+  color:black;
+}
+
+section h2{
+  /* para que el encabezado no lo oculte */
+  /* Lo que hace es empujar el texto hacia abajo entonces cuando el usuario lo seleccione lo muestre*/
+  margin-top:10vh;
+  font-weight:500;
+  font-size:30px;
+}
+
+/* La funcion que lo muestra */
+.hidden{
+  left:100%;
+  transition:left .4s;
+
+}
+.btn-close{
+  z-index:100;
+  background-color:#fff;
+  /* para que este al lado de su contenedor */
+  position:absolute;
+  right:50px;
+  bottom:30px;
+  cursor: pointer;
+  width:60px;
+  height:60px;
+  background-color:var(--encabezado-color);
+  border-radius:50%;
+}
+
+.btn{
+  z-index:10;
+  bottom:30px;
+  right:30px;
+  cursor:pointer;
+  position:fixed;
+  background-color:var(--encabezado-color);
+  width:60px;
+  height:60px;
+  padding:5px;
+  border-radius:50%;
+}
+
+.btn:hover, .btn-close:hover{
+  width:65px;
+  height:65px;
+  transition:.1s;
+}
+
+.btn:active, .btn-close:active{
+  padding:10px;
+}
